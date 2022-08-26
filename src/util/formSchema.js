@@ -1,14 +1,14 @@
 import * as Yup from 'yup';
 
 export const productSchema = Yup.object().shape({
-  Name: Yup.string().label('Name').required('Please enter name'),
-  Price: Yup.number().label('Price').required('Please enter price'),
-  Category: Yup.string().label('Category').required('Please select category'),
-  Description: Yup.string()
-    .label('Description')
+  name: Yup.string().label('name').required('Please enter name'),
+  price: Yup.number().label('price').required('Please enter price'),
+  category: Yup.string().label('category').required('Please select category'),
+  description: Yup.string()
+    .label('description')
     .required('Please enter description'),
-  Avatar: Yup.string().label('Avatar').required('Please enter avatar'),
-  DeveloperEmail: Yup.string()
+  avatar: Yup.string().label('avatar').required('Please enter avatar'),
+  developerEmail: Yup.string()
     .label('DeveloperEmail')
     .required('Please enter developer email'),
 });

@@ -33,7 +33,7 @@ const ProductList = ({category}) => {
       if (filter.length > 0) createFilter([]);
     }
   }, [category]);
-  
+
 
   if (isLoading) {
     return (
@@ -50,6 +50,7 @@ const ProductList = ({category}) => {
       </Box>
     );
   }
+  console.log(data,"data")
 
   return (
     <>

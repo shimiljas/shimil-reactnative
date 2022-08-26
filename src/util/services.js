@@ -34,6 +34,7 @@ const getProducts = () => {
 
 
 const addProduct = (data) => {
+  console.log(data,"iamshimil@gmail.comiamshimil@gmail.comiamshimil@gmail.com")
   return request(
     {
       method: 'post',

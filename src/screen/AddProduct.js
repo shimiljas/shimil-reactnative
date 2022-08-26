@@ -30,8 +30,7 @@ const AddProduct = () => {
   const mutation = useMutation(ApiManager.addProduct, {
     onSuccess: (data) => {
       queryClient.setQueryData('products',(oldProducts)=>{
-        console.log(oldProducts,"oldProducts")
-        return [data.data,...oldProducts]
+        return [data.data?.product,...oldProducts]
       });
       navigation.goBack();
     },
@@ -39,7 +38,6 @@ const AddProduct = () => {
 
 
   const handleFormSubmit = (values, {setSubmitting}) => {
-    // console.log(values, 'valuesvaluesvaluesvalues');
     setSubmitting(true)
     mutation.mutate(values);
     setSubmitting(false)
@@ -54,14 +52,14 @@ const AddProduct = () => {
         backgroundColor="mainBackground"
         padding="l">
         <Formik
-          // validationSchema={productSchema}
+          validationSchema={productSchema}
           initialValues={{
-            Name: '',
-            Price: '',
-            Category: '',
-            Description: '',
-            Avatar: '',
-            DeveloperEmail: 'iamshimil@gmail.com',
+            name: '',
+            price: '',
+            category: '',
+            description: '',
+            avatar: '',
+            developerEmail: 'iamshimil@gmail.com',
           }}
           enableReinitialize={true}
           onSubmit={handleFormSubmit}>
@@ -75,53 +73,54 @@ const AddProduct = () => {
             handleBlur,
             setFieldValue,
           }) => {
+            console.log(errors,"errors")
             return (
               <>
                 <InputBox
-                  onChangeText={handleChange('Name')}
+                  onChangeText={handleChange('name')}
                   keyboardType="default"
-                  value={values.Name}
+                  value={values.name}
                   autoCapitalize={'characters'}
-                  error={touched.Name && errors.Name}
+                  error={touched.name && errors.name}
                   placeholder={'Product title'}
                 />
 
                 <InputBox
-                  onChangeText={handleChange('Price')}
-                  value={values.Price}
+                  onChangeText={handleChange('price')}
+                  value={values.price}
                   autoCapitalize={'characters'}
-                  error={touched.Price && errors.Price}
-                  placeholder={'Price'}
+                  error={touched.price && errors.price}
+                  placeholder={'price'}
                   keyboardType={'numeric'}
                 />
 
                 <InputBox
-                  onChangeText={handleChange('Description')}
+                  onChangeText={handleChange('description')}
                   keyboardType="default"
-                  value={values.Description}
+                  value={values.description}
                   autoCapitalize={'characters'}
-                  error={touched.Description && errors.Description}
-                  placeholder={'Description'}
+                  error={touched.description && errors.description}
+                  placeholder={'description'}
                   textArea
                 />
 
                 <InputBox
-                  onChangeText={handleChange('Avatar')}
+                  onChangeText={handleChange('avatar')}
                   keyboardType="default"
-                  value={values.Avatar}
+                  value={values.avatar}
                   autoCapitalize={'characters'}
-                  error={touched.Avatar && errors.Avatar}
+                  error={touched.avatar && errors.avatar}
                   placeholder={'Image Link'}
                 />
 
                 <Box height={80} justifyContent="center">
                   <Text variant="textblack" marginVetical={'xl'}>
-                    Select category : {values?.Category}
+                    Select category : {values?.category}
                   </Text>
 
-                  {errors?.Category && (
+                  {errors?.category && (
                     <Text variant="error" marginTop="s">
-                      {errors?.Category}
+                      {errors?.category}
                     </Text>
                   )}
                 </Box>
@@ -133,9 +132,9 @@ const AddProduct = () => {
                     {categoriresData.data.map((item, index) => (
                       <CategoryItem
                         key={index}
-                        selected={values?.Category == item}
+                        selected={values?.category == item?.name}
                         item={item?.name}
-                        onPress={() => setFieldValue('Category', item?.title)}
+                        onPress={() => setFieldValue('category', item?.name)}
                       />
                     ))}
                   </ScrollView>
