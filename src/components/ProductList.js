@@ -21,8 +21,20 @@ const fetchProducts = async () => {
   return data.data?.products;
 };
 
-const ProductList = () => {
+const ProductList = ({category}) => {
+  const [filter, createFilter] = useState([]);
   const {data, error, isError, isLoading} = useQuery('products', fetchProducts);
+
+  useEffect(() => {
+    if (category?._id) {
+      let filtered = data.filter(item => item.category == category?.name);
+      createFilter(filtered);
+    } else {
+      if (filter.length > 0) createFilter([]);
+    }
+  }, [category]);
+  
+
   if (isLoading) {
     return (
       <Box flex={1} justifyContent="center" alignItems="center">
@@ -43,14 +55,12 @@ const ProductList = () => {
     <>
       {/* <Text variant="textblack">{data.length}</Text> */}
       <AnimatedFlatList
-        data={data}
+        data={filter.length > 0 ? filter : data}
         showsVerticalScrollIndicator={false}
         style={styles.flatlist}
         contentContainerStyle={{alignItems: 'center'}}
         numColumns={2}
         animationType={AnimationType.SlideFromBottom}
-        animationDuration={1000}
-        focused
         renderItem={({item}) => <ProductItem selected item={item} />}
       />
     </>

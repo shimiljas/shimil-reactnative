@@ -30,6 +30,7 @@ const AddProduct = () => {
   const mutation = useMutation(ApiManager.addProduct, {
     onSuccess: (data) => {
       queryClient.setQueryData('products',(oldProducts)=>{
+        console.log(oldProducts,"oldProducts")
         return [data.data,...oldProducts]
       });
       navigation.goBack();
@@ -40,12 +41,7 @@ const AddProduct = () => {
   const handleFormSubmit = (values, {setSubmitting}) => {
     // console.log(values, 'valuesvaluesvaluesvalues');
     setSubmitting(true)
-    mutation.mutate({
-      id: Date.now(),
-      title: 'Terminator',
-      body:"upiditate quo est a modi",
-      userId: 10
-    });
+    mutation.mutate(values);
     setSubmitting(false)
   };
 
@@ -138,7 +134,7 @@ const AddProduct = () => {
                       <CategoryItem
                         key={index}
                         selected={values?.Category == item}
-                        item={item?.title}
+                        item={item?.name}
                         onPress={() => setFieldValue('Category', item?.title)}
                       />
                     ))}

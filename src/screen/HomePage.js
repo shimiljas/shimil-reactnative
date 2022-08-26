@@ -21,7 +21,7 @@ import {fetchCategories} from '../reducer/categoryReducer';
 const Box = createBox();
 const Text = createText();
 const HomePage = () => {
-  const [category, setCategory] = useState({name:'All'});
+  const [category, setCategory] = useState({name: 'All'});
 
   const dispatch = useDispatch();
   const categoriresData = useSelector(state => state?.categorires);
@@ -33,6 +33,7 @@ const HomePage = () => {
       dispatch(fetchCategories());
     }
   }, [categoriresDataStatus, dispatch]);
+
 
   if (categoriresDataStatus == 'loading') {
     return (
@@ -59,26 +60,25 @@ const HomePage = () => {
               horizontal
               showsHorizontalScrollIndicator={false}
               style={{marginTop: 7}}>
-               <CategoryItem
-                  selected={category?.name == 'All'}
-                  item={'All'}
-                  onPress={() => setCategory({name:'All'})}
-                />
+              <CategoryItem
+                selected={category?.name == 'All'}
+                item={'All'}
+                onPress={() => setCategory({name: 'All'})}
+              />
               {categoriresData.data.map((item, index) => (
                 <CategoryItem
                   key={index}
-                  selected={category?.name == item?.name}
+                  selected={category?._id == item?._id}
                   item={item?.name}
                   onPress={() => setCategory(item)}
                 />
               ))}
             </ScrollView>
           </Box>
-
-          <ProductList />
+          <ProductList  category={category}/>
         </Box>
       </Box>
-      <FloatButton />
+      <FloatButton/>
     </>
   );
 };

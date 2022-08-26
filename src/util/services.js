@@ -37,7 +37,7 @@ const addProduct = (data) => {
   return request(
     {
       method: 'post',
-      url: `/posts`,
+      url: `/api/products`,
       data
     },
     true,
