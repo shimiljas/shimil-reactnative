@@ -5,8 +5,7 @@ import ApiManager from  '../util/services'
 
 export const fetchCategories = createAsyncThunk('fetchCategories', async () => {
   const response = await ApiManager.getCategories();
-  console.log(response.data,"response")
-  return response.data
+  return response.data?.categories
 })
 
 
@@ -28,6 +27,7 @@ export const categorySlice = createSlice({
       .addCase(fetchCategories.fulfilled, (state, action) => {
         state.status = 'succeeded'
         // Add any fetched posts to the array
+
         state.data = state.data.concat(action.payload)
       })
       .addCase(fetchCategories.rejected, (state, action) => {

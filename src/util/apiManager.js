@@ -6,16 +6,11 @@ import ToastMessage from '../components/ToastMessage';
 
 const request = async (options, isHeader = true) => {
   return new Promise((resolve, reject) => {
-    let authHeader = null;
-    if (isHeader) {
-      authHeader = ''; //pass token
-    }
 
     const client = axios.create({
       baseURL: BASE_URL,
       headers: {
-        app: 'qubex',
-        'x-access-token': authHeader,
+        'Authorization': `Bearer ${appConfig.TOKEN}`,
       },
     });
 

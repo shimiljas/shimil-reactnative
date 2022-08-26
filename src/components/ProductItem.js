@@ -19,7 +19,8 @@ const ProductItem = ({item}) => {
   const navigation = useNavigation();
   return (
     <TouchableOpacity
-      onPress={() => navigation.navigate('ProductDetail', {product: item})}>
+      key={item._id}
+      onPress={() => navigation.navigate('ProductDetail', {productId: item?._id})}>
       <Box
         justifyContent="center"
         backgroundColor={'cardPrimaryBackground'}
@@ -40,7 +41,9 @@ const ProductItem = ({item}) => {
           backgroundColor="cardPrimaryBackground">
           <Image
             source={{
-              uri: 'https://cloudinary-res.cloudinary.com/image/upload/w_300,c_fill/dpr_auto/iphonexdesign.jpg',
+              uri:
+                item.avatar ??
+                'https://cloudinary-res.cloudinary.com/image/upload/w_300,c_fill/dpr_auto/iphonexdesign.jpg',
             }}
             style={{width: windowWidth / 2 - 25, height: 100}}
             resizeMode={'contain'}
@@ -54,10 +57,10 @@ const ProductItem = ({item}) => {
           borderBottomRightRadius={12}
           backgroundColor="text">
           <Text variant="text" numberOfLines={1}>
-            {item?.title}
+            {item?.name}
           </Text>
           <Text variant="text" marginTop="vs">
-            $40
+            ${item?.price}
           </Text>
         </Box>
       </Box>

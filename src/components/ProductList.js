@@ -18,7 +18,7 @@ const Text = createText();
 
 const fetchProducts = async () => {
   const data = await ApiManager.getProducts();
-  return data.data;
+  return data.data?.products;
 };
 
 const ProductList = () => {

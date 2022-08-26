@@ -4,10 +4,21 @@ const getCategories = () => {
     return request(
       {
         method: 'get',
-        url: `/albums`,
+        url: `/api/categories`,
       },
       true,
     );
+};
+
+
+const getProductDetail = (id) => {
+  return request(
+    {
+      method: 'get',
+      url: `/api/products/${id}`,
+    },
+    true,
+  );
 };
 
 
@@ -15,7 +26,7 @@ const getProducts = () => {
   return request(
     {
       method: 'get',
-      url: `/posts`,
+      url: `/api/products`,
     },
     true,
   );
@@ -36,5 +47,6 @@ const addProduct = (data) => {
 export default {
     getCategories,
     getProducts,
-    addProduct
+    addProduct,
+    getProductDetail
   }
