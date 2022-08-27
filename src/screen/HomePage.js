@@ -18,6 +18,7 @@ import Header from '../components/Header';
 
 import {fetchCategories} from '../reducer/categoryReducer';
 
+
 const Box = createBox();
 const Text = createText();
 const HomePage = () => {

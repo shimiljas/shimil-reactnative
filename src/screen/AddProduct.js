@@ -19,6 +19,7 @@ import {Formik} from 'formik';
 import {useMutation,useQueryClient} from 'react-query';
 import {useSelector} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
+import ToastMessage from '../components/ToastMessage';
 
 
 
@@ -33,6 +34,9 @@ const AddProduct = () => {
         return [data.data?.product,...oldProducts]
       });
       navigation.goBack();
+    },
+    onError: (error, variables, context) => {
+      ToastMessage('error','something went wrong','something went wrong')
     },
   });
 

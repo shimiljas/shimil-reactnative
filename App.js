@@ -18,6 +18,7 @@ import {QueryClient, QueryClientProvider} from 'react-query';
 import Navigator from './src/navigation';
 import {store} from './src/store';
 import theme from './src/theme';
+import Toast from 'react-native-toast-message';
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ const App = () => {
             </ThemeProvider>
           </Provider>
       </NavigationContainer>
+      <Toast/>
     </QueryClientProvider>
   );
 };
