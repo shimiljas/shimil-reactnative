@@ -54,7 +54,7 @@ const ProductDetail = ({route}) => {
               'https://cloudinary-res.cloudinary.com/image/upload/w_300,c_fill/dpr_auto/iphonexdesign.jpg',
           }}
           style={{width: windowWidth, height: '100%'}}
-          resizeMode={'cover'}
+          resizeMode={'contain'}
         />
       </Box>
       <Box
@@ -75,13 +75,13 @@ const ProductDetail = ({route}) => {
           overflow="hidden"
           marginRight={'s'}
           padding={'l'}>
-          <Box flex={6} marginRight='l'>
-            <Text variant="header" numberOfLines={1}>
+          <Box flex={7} marginRight='s'>
+            <Text variant="subheader" numberOfLines={1}>
               {data?.name}
             </Text>
           </Box>
-          <Box flex={4}>
-            <Text variant="header">${data?.price}</Text>
+          <Box flex={3} alignItems="flex-end">
+            <Text variant="subheader">${data?.price}</Text>
           </Box>
         </Box>
         <Box flex={8} alignItems="flex-start" padding={'l'}>

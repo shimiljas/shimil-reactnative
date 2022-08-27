@@ -34,6 +34,11 @@ const theme = createTheme({
       fontSize: normalize(30),
       color: 'cardPrimaryBackground',
     },
+    subheader: {
+      fontFamily: 'Montserrat-Bold',
+      fontSize: normalize(20),
+      color: 'cardPrimaryBackground',
+    },
     storeHeader: {
       fontFamily: 'Montserrat-Bold',
       fontSize:  normalize(20),
