@@ -227,6 +227,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+
+        release {
+            storeFile file('your_key_name.keystore')
+            storePassword 'shimil'
+            keyAlias 'shimil'
+            keyPassword 'shimil'
+        }
     }
     buildTypes {
         debug {
