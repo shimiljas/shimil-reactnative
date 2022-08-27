@@ -113,7 +113,7 @@ const AddProduct = () => {
                   placeholder={'Image Link'}
                 />
 
-                <Box height={80} justifyContent="center">
+                <Box height={80} marginTop='l' justifyContent="center">
                   <Text variant="textblack" marginVetical={'xl'}>
                     Select category : {values?.category}
                   </Text>
