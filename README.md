@@ -6,7 +6,17 @@
   2. cd shimil-reactnative
   3. yarn or npm install
   4. create .env file
-  5. add values to env file![Screenshot 2022-08-27 at 12 07 43 PM](https://user-images.githubusercontent.com/25904529/187018333-f18af5a8-216a-4d05-820c-4e59be0a1e3a.png)
+  5. add values to .env file (copy env values from .env.prod)
+   
+   ![Screenshot 2022-08-27 at 12 07 43 PM](https://user-images.githubusercontent.com/25904529/187018333-f18af5a8-216a-4d05-820c-4e59be0a1e3a.png) 
+    
+  
+    
+   ![Screenshot 2022-08-27 at 1 07 29 PM](https://user-images.githubusercontent.com/25904529/187020308-5fe9ac32-b808-4d9a-b0b0-fd4b00210be3.png)
+
+
+    
+    
   6. for ios do pod install in ios foler
   7. run npm run android for android and npm run ios for ios
   
