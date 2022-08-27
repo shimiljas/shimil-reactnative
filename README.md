@@ -1,5 +1,20 @@
 # shimil-reactnative
 
+
+# Android application
+
+
+https://user-images.githubusercontent.com/25904529/187020704-8673dc4f-6a55-48fe-99e3-2034f3695b00.mp4
+
+
+# ios application
+
+
+![Screenshot 2022-08-27 at 12 30 09 PM](https://user-images.githubusercontent.com/25904529/187020729-e20d71ad-985d-4a88-8c83-7696279f43ff.png)
+
+
+
+
 # Setup to run application
 
   1. Clone the project https://github.com/shimiljas/shimil-reactnative
