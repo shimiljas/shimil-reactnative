@@ -7,7 +7,8 @@
   3. yarn or npm install
   4. create .env file
   5. add values to env file![Screenshot 2022-08-27 at 12 07 43 PM](https://user-images.githubusercontent.com/25904529/187018333-f18af5a8-216a-4d05-820c-4e59be0a1e3a.png)
-  6. run npm run android for android and npm run ios for ios
+  6. for ios do pod install in ios foler
+  7. run npm run android for android and npm run ios for ios
   
       env values
       
